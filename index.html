@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CATIGS 2026 | Canada Africa Trade and Investment Global Summit</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .font-playfair { font-family: 'Playfair Display', serif; }
+        html { scroll-behavior: smooth; }
+        
+        /* Mobile menu animation */
+        #mobile-menu {
+            transition: all 0.3s ease-in-out;
+            transform-origin: top;
+        }
+        #mobile-menu.hidden {
+            transform: scaleY(0);
+            opacity: 0;
+            pointer-events: none;
+        }
+        #mobile-menu:not(.hidden) {
+            transform: scaleY(1);
+            opacity: 1;
+            pointer-events: auto;
+        }
+        
+        /* Hero responsive */
+        .hero-title { line-height: 1.05; }
+        .hero-subtitle { line-height: 1.75; }
+        
+        @media (max-width: 640px) {
+            .hero-title { 
+                font-size: 1.5rem !important;
+                line-height: 1.15 !important;
+            }
+            .hero-subtitle { 
+                font-size: 0.9rem !important;
+            }
+            .section-padding { padding: 2rem 1rem !important; }
+            .nav-logo { font-size: 0.95rem !important; }
+            .nav-logo span { font-size: 0.75rem !important; }
+            
+            /* Mobile-specific improvements */
+            body { overflow-x: hidden; }
+            .max-w-7xl { padding-left: 1rem; padding-right: 1rem; }
+            .px-3 { padding-left: 0.75rem; padding-right: 0.75rem; }
+            .gap-4 { gap: 1rem !important; }
+            .gap-6 { gap: 1.25rem !important; }
+            
+            /* Ensure buttons work well on mobile */
+            .btn-gold, .btn-outline {
+                min-height: 44px;
+                width: 100%;
+                justify-content: center;
+                font-size: 0.75rem;
+                padding: 0.75rem 1rem;
+            }
+            
+            /* Improve form inputs on mobile */
+            .form-input {
+                font-size: 16px;
+                padding: 0.875rem 1rem;
+            }
+            
+            /* Better spacing for cards */
+            .card-event {
+                padding: 1rem;
+            }
+            
+            /* Fix sponsor carousel on mobile */
+            .sponsor-card {
+                padding: 1.25rem;
+                min-width: 140px;
+            }
+            
+            /* Improve spacing for section headers */
+            h2 {
+                line-height: 1.2 !important;
+            }
+            
+            /* Better navigation bar on mobile */
+            nav .max-w-7xl {
+                padding-left: 0.5rem;
+                padding-right: 0.5rem;
+            }
+            
+            /* Mobile nav link improvements */
+            #mobile-menu a {
+                min-height: 44px;
+                display: flex;
+                align-items: center;
+                padding: 0.75rem 0.5rem !important;
+            }
+            
+            /* Mobile menu positioning */
+            #mobile-menu {
+                margin-left: 0.25rem !important;
+                margin-right: 0.25rem !important;
+                left: 0.25rem !important;
+                right: 0.25rem !important;
+            }
+            
+            /* Navbar spacing */
+            nav .bg-white {
+                margin-left: 0.25rem;
+                margin-right: 0.25rem;
+                margin-top: 0.25rem;
+            }
+            
+            /* Stack buttons properly */
+            .flex.flex-col.gap-3.items-center.justify-center {
+                width: 100%;
+            }
+            
+            .flex.flex-col.gap-3.items-center.justify-center a {
+                width: 100%;
+            }
+        }
+        
+        @media (min-width: 641px) and (max-width: 768px) {
+            .hero-title { font-size: 2.25rem !important; }
+            .hero-subtitle { font-size: 1rem !important; }
+        }
+        
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .hero-title { font-size: 3.25rem !important; }
+            .hero-subtitle { font-size: 1.05rem !important; }
+        }
+        
+        @media (min-width: 1025px) {
+            .hero-title { font-size: 4rem !important; }
+            .hero-subtitle { font-size: 1.125rem !important; }
+        }
+        
+        /* Card styles */
+        .feature-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        /* Section backgrounds */
+        .section-gray { background-color: #f9fafb; }
+        .section-white { background-color: #ffffff; }
+        .section-dark { background-color: #111827; }
+        
+        /* Gradient text */
+        .text-gradient {
+            background: linear-gradient(to right, #d97706, #f59e0b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        /* Mobile button full-width */
+        @media (max-width: 640px) {
+            .btn-gold,
+            .btn-outline {
+                width: 100%;
+                display: block;
+            }
+            
+            .flex.flex-col.sm\\:flex-row {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 overflow-x-hidden text-gray-900">
+
+    <nav id="main-nav" class="fixed w-full z-50">
+        <div class="bg-white/95 backdrop-blur-md shadow-lg mx-1 sm:mx-2 mt-1 sm:mt-2 rounded-xl sm:rounded-2xl">
+            <div class="max-w-7xl mx-auto px-2 sm:px-3 py-2 sm:py-3 flex justify-between items-center min-h-14 sm:min-h-auto">
+                <a href="index.html" class="flex items-center gap-1 sm:gap-2 flex-shrink-0">
+                    <img src="catigs2026-LOGO.jpeg" alt="CATIGS2026 Logo" class="h-7 sm:h-10 w-auto">
+                    <span class="text-xs sm:text-lg md:text-xl font-black tracking-tight text-gray-900 font-['Playfair_Display'] leading-none">
+                        <span class="block sm:inline">CATIGS</span><span class="hidden sm:inline">2026</span> <span class="text-amber-600">26</span>
+                    </span>
+                </a>
+                <div class="hidden lg:flex items-center gap-4">
+                    <a href="#event-info" class="text-xs font-bold uppercase tracking-wider text-gray-700 hover:text-amber-600">Event Info</a>
+                    <a href="#about" class="text-xs font-bold uppercase tracking-wider text-gray-700 hover:text-amber-600">About</a>
+                    <a href="#focus" class="text-xs font-bold uppercase tracking-wider text-gray-700 hover:text-amber-600">Focus Areas</a>
+                    <a href="#speakers" class="text-xs font-bold uppercase tracking-wider text-gray-700 hover:text-amber-600">Speakers</a>
+                    <a href="#contact" class="text-xs font-bold uppercase tracking-wider text-gray-700 hover:text-amber-600">Contact</a>
+                </div>
+                <a href="registration.html" class="btn-gold hidden lg:inline-flex">Register</a>
+                <button id="mobile-menu-toggle" onclick="toggleMenu()" aria-controls="mobile-menu" aria-expanded="false" class="lg:hidden p-2 hover:bg-gray-100 rounded-lg transition">
+                    <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden lg:hidden bg-white mx-1 sm:mx-2 rounded-b-xl sm:rounded-b-2xl shadow-lg">
+            <div class="px-3 sm:px-4 py-3 sm:py-4 flex flex-col gap-1">
+                <a href="#event-info" class="text-xs sm:text-sm font-bold uppercase text-gray-700 py-3 px-2 rounded hover:bg-gray-100 transition block">Event Info</a>
+                <a href="#about" class="text-xs sm:text-sm font-bold uppercase text-gray-700 py-3 px-2 rounded hover:bg-gray-100 transition block">About</a>
+                <a href="#focus" class="text-xs sm:text-sm font-bold uppercase text-gray-700 py-3 px-2 rounded hover:bg-gray-100 transition block">Focus Areas</a>
+                <a href="#speakers" class="text-xs sm:text-sm font-bold uppercase text-gray-700 py-3 px-2 rounded hover:bg-gray-100 transition block">Speakers</a>
+                <a href="#contact" class="text-xs sm:text-sm font-bold uppercase text-gray-700 py-3 px-2 rounded hover:bg-gray-100 transition block">Contact</a>
+                <a href="registration.html" class="text-xs sm:text-sm font-bold uppercase text-gray-700 py-3 px-2 rounded hover:bg-gray-100 transition block border-t mt-1 pt-3">Register</a>
+            </div>
+        </div>
+    </nav>
+    <div class="h-20"></div>
+    <main>
+        <section id="hero" class="relative min-h-[90vh] md:min-h-[85vh] flex items-center justify-center overflow-hidden bg-gray-100 py-8 md:py-12">
+            <div class="absolute inset-0 bg-gradient-to-b from-white to-white/80"></div>
+            <div class="relative z-20 max-w-6xl mx-auto px-3 sm:px-4 text-center">
+                <div class="inline-flex items-center gap-2 bg-gray-900 text-white px-3 sm:px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider mb-4 sm:mb-6">
+                    <span class="w-2 h-2 bg-amber-500 rounded-full animate-pulse"></span>
+                    <span class="hidden sm:inline">November 12–14, 2026 | Addis Ababa</span>
+                    <span class="sm:hidden">Nov 12–14 | Addis</span>
+                </div>
+                <h1 class="hero-title font-black text-gray-900 tracking-tight mb-4 sm:mb-6 font-['Playfair_Display']">
+                    CATIGS 2026<br>
+                    <span class="text-gradient">Canada Africa Trade Summit</span>
+                </h1>
+                <p class="hero-subtitle text-gray-600 max-w-3xl mx-auto mb-6 sm:mb-8 text-sm sm:text-base">
+                    Canada Africa Trade and Investment Global Summit — a premium international platform for investors, policymakers, entrepreneurs, and development partners.
+                </p>
+                <div class="flex flex-col gap-3 sm:gap-4 items-center justify-center">
+                    <a href="registration.html" class="btn-gold w-full sm:w-auto">Register Now</a>
+                    <a href="#sponsorship" class="btn-outline w-full sm:w-auto">Become a Sponsor</a>
+                    <a href="#event-info" class="btn-outline w-full sm:w-auto">Partnership</a>
+                </div>
+            </div>
+            <div class="absolute bottom-4 left-1/2 -translate-x-1/2">
+                <div class="w-6 h-10 border-2 border-gray-400 rounded-full flex justify-center pt-1">
+                    <div class="w-1 h-2 bg-gray-400 rounded-full animate-bounce"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- leaders section moved below speakers -->
+
+        <section id="event-info" class="py-12 sm:py-16 md:py-20 bg-gray-100">
+            <div class="max-w-7xl mx-auto px-3 sm:px-4">
+                <div class="mb-8 sm:mb-12 text-center">
+                    <p class="text-xs font-bold text-amber-600 uppercase tracking-[0.3em] mb-3">In Alignment with Canada Africa Economic Cooperation Strategy</p>
+                    <h2 class="text-2xl sm:text-3xl md:text-4xl font-black mt-3 sm:mt-4">Event Information</h2>
+                    <p class="mt-3 sm:mt-4 text-gray-600 max-w-2xl mx-auto text-sm sm:text-base">CATIGS 2026 is designed for global business leaders, investors, policymakers, and development partners to build sustainable economic growth through Canada–Africa collaboration.</p>
+                </div>
+                <div class="grid gap-4 sm:gap-6 xl:grid-cols-3">
+                    <div class="card-event p-5 sm:p-8">
+                        <p class="text-xs uppercase tracking-[0.3em] text-amber-600">Date</p>
+                        <h3 class="mt-3 sm:mt-4 text-xl sm:text-2xl font-bold">November 12–14, 2026</h3>
+                        <p class="mt-2 sm:mt-3 text-gray-600 text-sm sm:text-base">Three days of high-level plenaries, investor roundtables, and partnership workshops.</p>
+                    </div>
+                    <div class="card-event p-5 sm:p-8">
+                        <p class="text-xs uppercase tracking-[0.3em] text-amber-600">Venue</p>
+                        <h3 class="mt-3 sm:mt-4 text-xl sm:text-2xl font-bold">Addis International Convention Center</h3>
+                        <p class="mt-2 sm:mt-3 text-gray-600 text-sm sm:text-base">A world-class venue in Addis Ababa, Ethiopia, ideal for international trade and investment forums.</p>
+                    </div>
+                    <div class="card-event p-5 sm:p-8">
+                        <p class="text-xs uppercase tracking-[0.3em] text-amber-600">Purpose</p>
+                        <h3 class="mt-3 sm:mt-4 text-xl sm:text-2xl font-bold">A Global Platform for Partnership, Prosperity & Sustainable Growth</h3>
+                        <p class="mt-2 sm:mt-3 text-gray-600 text-sm sm:text-base">Strengthen economic cooperation and unlock new opportunities between Canadian and African markets.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+<section id="countdown" class="py-12 sm:py-16 md:py-20 bg-gray-900 text-white">
+            <div class="max-w-7xl mx-auto px-3 sm:px-4 text-center">
+                <p class="text-xs font-bold text-amber-500 uppercase tracking-[0.3em] mb-3">Countdown to CATIGS 2026</p>
+                <h2 class="text-2xl sm:text-3xl md:text-4xl font-black mt-3 sm:mt-4">Prepare for three days of global trade leadership.</h2>
+                <p class="mt-3 sm:mt-4 text-gray-200 max-w-2xl mx-auto text-sm sm:text-base">Track the time remaining until CATIGS 2026 and get ready to join global investors, policymakers, and entrepreneurs for partnership-building conversations.</p>
+                <div class="mt-8 sm:mt-12 grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-4">
+                    <div class="countdown-item">
+                        <p id="countdown-days" class="countdown-number">00</p>
+                        <p class="uppercase tracking-[0.2em] text-xs sm:text-sm text-gray-200 mt-2">Days</p>
+                    </div>
+                    <div class="countdown-item">
+                        <p id="countdown-hours" class="countdown-number">00</p>
+                        <p class="uppercase tracking-[0.2em] text-xs sm:text-sm text-gray-200 mt-2">Hours</p>
+                    </div>
+                    <div class="countdown-item">
+                        <p id="countdown-minutes" class="countdown-number">00</p>
+                        <p class="uppercase tracking-[0.2em] text-xs sm:text-sm text-gray-200 mt-2">Minutes</p>
+                    </div>
+                    <div class="countdown-item">
+                        <p id="countdown-seconds" class="countdown-number">00</p>
+                        <p class="uppercase tracking-[0.2em] text-xs sm:text-sm text-gray-200 mt-2">Seconds</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="py-12 sm:py-16 md:py-20">
+            <div class="max-w-7xl mx-auto px-3 sm:px-4 grid gap-8 sm:gap-10 lg:grid-cols-[0.9fr_0.8fr] items-center">
+                <div class="space-y-4 sm:space-y-6">
+                    <p class="badge-blue">About CATIGS</p>
+                    <h2 class="text-2xl sm:text-3xl md:text-4xl font-black">CATIGS 2026 serves as a strategic bridge between Canada and Africa.</h2>
+                    <p class="text-gray-600 leading-relaxed text-sm sm:text-base">CATIGS 2026 brings together government leaders, investors, policymakers, entrepreneurs, innovators, and trade organizations to create sustainable opportunities for trade expansion, investment collaboration, innovation exchange, and economic development.</p>
+                    <div class="grid gap-3 sm:gap-4 sm:grid-cols-2">
+                        <div class="card-event p-4 sm:p-6">
+                            <h3 class="font-bold text-gray-900 mb-2 sm:mb-3 text-sm sm:text-base">Who attends</h3>
+                            <ul class="text-gray-600 space-y-1 sm:space-y-2 text-xs sm:text-sm">
+                                <li>• Government leaders</li>
+                                <li>• Investors</li>
+                                <li>• Policymakers</li>
+                                <li>• Business executives</li>
+                            </ul>
+                        </div>
+                        <div class="card-event p-4 sm:p-6">
+                            <h3 class="font-bold text-gray-900 mb-2 sm:mb-3 text-sm sm:text-base">Value delivered</h3>
+                            <ul class="text-gray-600 space-y-1 sm:space-y-2 text-xs sm:text-sm">
+                                <li>• SMEs & entrepreneurs</li>
+                                <li>• Development agencies</li>
+                                <li>• Trade organizations</li>
+                                <li>• Financial institutions</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+<div class="rounded-2xl sm:rounded-[2rem] bg-gray-900 p-6 sm:p-10 text-white shadow-2xl">
+                    <p class="text-xs uppercase tracking-[0.3em] text-amber-200 mb-3 sm:mb-4">Strategic alignment</p>
+                    <h3 class="text-2xl sm:text-3xl font-black mb-4 sm:mb-6">Stronger economic cooperation for a shared future.</h3>
+                    <p class="text-gray-200 leading-relaxed mb-6 sm:mb-8 text-sm sm:text-base">The summit focuses on partnership building, investment readiness, innovation exchange, and sustainable development across Canada and Africa.</p>
+                    <div class="grid gap-3 sm:gap-4">
+                        <div class="rounded-2xl sm:rounded-3xl bg-white/10 p-4 sm:p-5">
+                            <p class="text-xs font-semibold uppercase tracking-[0.25em] text-amber-200">Partner Organizations</p>
+                            <div class="mt-3 sm:mt-4 flex flex-wrap justify-center items-center gap-3 sm:gap-4">
+                                <img src="atescalogo.jpg" alt="ATESCA logo" class="partner-logo">
+                                <img src="AWP logo.jpeg" alt="AWIP logo" class="partner-logo">
+                            </div>
+                        </div>
+                        <div class="rounded-2xl sm:rounded-3xl bg-white/10 p-4 sm:p-5">
+                            <p class="text-xs font-semibold uppercase tracking-[0.25em] text-amber-200">Impact Focus</p>
+                            <p class="mt-2 sm:mt-3 text-xs sm:text-sm text-gray-100">Trade, investment, infrastructure, sustainability, women empowerment, and youth leadership.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="why-attend" class="py-12 sm:py-16 md:py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-3 sm:px-4">
+                <div class="mb-8 sm:mb-12 text-center">
+                    <p class="text-xs font-bold text-amber-600 uppercase tracking-[0.3em] mb-3">Why attend</p>
+                    <h2 class="text-2xl sm:text-3xl md:text-4xl font-black">Join CATIGS 2026 to accelerate trade, investment and collaboration.</h2>
+                </div>
+                <div class="grid gap-4 sm:gap-6 xl:grid-cols-5 lg:grid-cols-3 md:grid-cols-2">
+                    <div class="feature-card bg-gray-50 p-4 sm:p-8 rounded-2xl">
+                        <h3 class="font-bold text-gray-900 mb-3 text-sm sm:text-base">Connect</h3>
+                        <p class="text-gray-600 text-xs sm:text-sm">Meet leaders, investors, policymakers, and industry experts from Canada and Africa.</p>
+                    </div>
+                    <div class="feature-card bg-gray-50 p-4 sm:p-8 rounded-2xl">
+                        <h3 class="font-bold text-gray-900 mb-3 text-sm sm:text-base">Explore Opportunities</h3>
+                        <p class="text-gray-600 text-xs sm:text-sm">Discover new markets, partnerships, and investment opportunities.</p>
+                    </div>
+                    <div class="feature-card bg-gray-50 p-4 sm:p-8 rounded-2xl">
+                        <h3 class="font-bold text-gray-900 mb-3 text-sm sm:text-base">Economic Growth</h3>
+                        <p class="text-gray-600 text-xs sm:text-sm">Support stronger and more resilient Canada-Africa economic partnerships.</p>
+                    </div>
+                    <div class="feature-card bg-gray-50 p-4 sm:p-8 rounded-2xl">
+                        <h3 class="font-bold text-gray-900 mb-3 text-sm sm:text-base">Networking</h3>
+                        <p class="text-gray-600 text-xs sm:text-sm">Build strategic relationships with global business and government stakeholders.</p>
+                    </div>
+                    <div class="feature-card bg-gray-50 p-4 sm:p-8 rounded-2xl">
+                        <h3 class="font-bold text-gray-900 mb-3 text-sm sm:text-base">Innovation</h3>
+                        <p class="text-gray-600 text-xs sm:text-sm">Explore emerging technologies, sustainable initiatives, and innovation-driven growth.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="focus" class="py-12 sm:py-16 md:py-20 bg-gray-900 text-white">
+            <div class="max-w-7xl mx-auto px-3 sm:px-4">
+                <div class="mb-8 sm:mb-12 text-center">
+                    <p class="text-xs font-bold text-amber-500 uppercase tracking-[0.3em] mb-3">Key focus areas</p>
+                    <h2 class="text-2xl sm:text-3xl md:text-4xl font-black">Driving Canada–Africa trade, investment and sustainable development.</h2>
+                </div>
+                <div class="grid gap-3 sm:gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                    <div class="bg-gray-800 p-4 sm:p-7 rounded-xl border border-gray-700 hover:border-amber-500 transition">
+                        <h3 class="font-bold mb-2 sm:mb-3 text-white text-sm sm:text-base">Trade & Commerce</h3>
+                        <p class="text-xs sm:text-sm text-gray-400">Global market access and bilateral trade frameworks.</p>
+                    </div>
+                    <div class="bg-gray-800 p-4 sm:p-7 rounded-xl border border-gray-700 hover:border-amber-500 transition">
+                        <h3 class="font-bold mb-2 sm:mb-3 text-white text-sm sm:text-base">Investment & Finance</h3>
+                        <p class="text-xs sm:text-sm text-gray-400">Finance solutions for cross-border growth.</p>
+                    </div>
+                    <div class="bg-gray-800 p-4 sm:p-7 rounded-xl border border-gray-700 hover:border-amber-500 transition">
+                        <h3 class="font-bold mb-2 sm:mb-3 text-white text-sm sm:text-base">Infrastructure Development</h3>
+                        <p class="text-xs sm:text-sm text-gray-400">Project partnerships in transport, logistics, and industrial hubs.</p>
+                    </div>
+                    <div class="bg-gray-800 p-4 sm:p-7 rounded-xl border border-gray-700 hover:border-amber-500 transition">
+                        <h3 class="font-bold mb-2 sm:mb-3 text-white text-sm sm:text-base">Renewable Energy</h3>
+                        <p class="text-xs sm:text-sm text-gray-400">Clean energy, power systems, and sustainable infrastructure.</p>
+                    </div>
+                    <div class="bg-gray-800 p-4 sm:p-7 rounded-xl border border-gray-700 hover:border-amber-500 transition">
+                        <h3 class="font-bold mb-2 sm:mb-3 text-white text-sm sm:text-base">Agriculture & Food Security</h3>
+                        <p class="text-xs sm:text-sm text-gray-400">Agri-value chains, food systems, and export readiness.</p>
+                    </div>
+                    <div class="bg-gray-800 p-4 sm:p-7 rounded-xl border border-gray-700 hover:border-amber-500 transition">
+                        <h3 class="font-bold mb-2 sm:mb-3 text-white text-sm sm:text-base">Technology & Innovation</h3>
+                        <p class="text-xs sm:text-sm text-gray-400">Digital trade, fintech, and innovation ecosystems.</p>
+                    </div>
+                    <div class="bg-gray-800 p-4 sm:p-7 rounded-xl border border-gray-700 hover:border-amber-500 transition">
+                        <h3 class="font-bold mb-2 sm:mb-3 text-white text-sm sm:text-base">Manufacturing</h3>
+                        <p class="text-xs sm:text-sm text-gray-400">Value-add production and industrial collaboration.</p>
+                    </div>
+                    <div class="bg-gray-800 p-4 sm:p-7 rounded-xl border border-gray-700 hover:border-amber-500 transition">
+                        <h3 class="font-bold mb-2 sm:mb-3 text-white text-sm sm:text-base">Mining & Natural Resources</h3>
+                        <p class="text-xs sm:text-sm text-gray-400">Responsible resource investment and supply chain partnerships.</p>
+                    </div>
+                    <div class="bg-gray-800 p-4 sm:p-7 rounded-xl border border-gray-700 hover:border-amber-500 transition">
+                        <h3 class="font-bold mb-2 sm:mb-3 text-white text-sm sm:text-base">Women Entrepreneurship</h3>
+                        <p class="text-xs sm:text-sm text-gray-400">Accelerating women-led leadership, access and inclusion.</p>
+                    </div>
+                    <div class="bg-gray-800 p-4 sm:p-7 rounded-xl border border-gray-700 hover:border-amber-500 transition">
+                        <h3 class="font-bold mb-2 sm:mb-3 text-white text-sm sm:text-base">Youth Empowerment</h3>
+                        <p class="text-xs sm:text-sm text-gray-400">Emerging leaders, startups and future-ready business models.</p>
+                    </div>
+                    <div class="bg-gray-800 p-4 sm:p-7 rounded-xl border border-gray-700 hover:border-amber-500 transition">
+                        <h3 class="font-bold mb-2 sm:mb-3 text-white text-sm sm:text-base">Sustainable Development</h3>
+                        <p class="text-xs sm:text-sm text-gray-400">ESG, climate resilience, and long-term impact strategies.</p>
+                    </div>
+                    <div class="bg-gray-800 p-4 sm:p-7 rounded-xl border border-gray-700 hover:border-amber-500 transition">
+                        <h3 class="font-bold mb-2 sm:mb-3 text-white text-sm sm:text-base">International Partnerships</h3>
+                        <p class="text-xs sm:text-sm text-gray-400">Cross-border alliances for scalable global growth.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="speakers" class="py-12 sm:py-16 md:py-20 bg-gray-100">
+            <div class="max-w-7xl mx-auto px-3 sm:px-4">
+                <div class="mb-8 sm:mb-12 text-center">
+                    <p class="badge-blue">Speakers</p>
+                    <h2 class="text-2xl sm:text-3xl md:text-4xl font-black">Government officials, CEOs, investors and development experts.</h2>
+                </div>
+                <div id="speaker-list" class="max-w-3xl mx-auto text-center">
+                    <ul class="space-y-3 sm:space-y-4 text-gray-700 text-xs sm:text-base md:text-lg font-semibold">
+                        <li>Minister of Trade — Government official leading Canada–Africa economic cooperation</li>
+                        <li>Global Investment CEO — Investor focused on sustainable infrastructure and trade partnerships</li>
+                        <li>Development Expert — Advisor on women entrepreneurship, youth empowerment and ESG alignment</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Leaders section moved here -->
+        <section id="leaders" class="py-12 sm:py-16 md:py-20">
+            <div class="max-w-7xl mx-auto px-3 sm:px-4">
+                <div class="mb-8 sm:mb-12 text-center">
+                    <p class="badge-blue">Leaders</p>
+                    <h2 class="text-2xl sm:text-3xl md:text-4xl font-black">Meet Our Leaders</h2>
+                </div>
+                <div class="grid gap-2 grid-cols-2 sm:grid-cols-3 lg:grid-cols-4">
+                    <div class="speaker-card text-center">
+                        <img src="https://www.uscaatigs2026.com/dr.jpg" alt="Dr Olufemi Adegun" class="speaker-img">
+                        <div class="p-1 sm:p-3">
+                            <h3 class="font-bold text-xs leading-tight line-clamp-2">Dr Olufemi Adegun</h3>
+                            <p class="text-xs text-gray-600 mt-0.5 line-clamp-1">Chair</p>
+                        </div>
+                    </div>
+                    <div class="speaker-card text-center">
+                        <img src="aw.jpeg" alt="AWIP Leader" class="speaker-img">
+                        <div class="p-1 sm:p-3">
+                            <h3 class="font-bold text-xs leading-tight line-clamp-2">Ameile Haile</h3>
+                            <p class="text-xs text-gray-600 mt-0.5 line-clamp-1">AWIP</p>
+                        </div>
+                    </div>
+                    <div class="speaker-card text-center">
+                        <img src="newone.jpeg" alt="Dr Esther Oluwatoyin Kayode" class="speaker-img">
+                        <div class="p-1 sm:p-3">
+                            <h3 class="font-bold text-xs leading-tight line-clamp-2">Dr Esther Kayode</h3>
+                            <p class="text-xs text-gray-600 mt-0.5 line-clamp-1">Planning Chair</p>
+                        </div>
+                    </div>
+                    <div class="speaker-card text-center">
+                        <img src="https://www.uscaatigs2026.com/kumesh_d.jpg" alt="Kumesh Dejene" class="speaker-img">
+                        <div class="p-1 sm:p-3">
+                            <h3 class="font-bold text-xs leading-tight line-clamp-2">Kumesh Dejene</h3>
+                            <p class="text-xs text-gray-600 mt-0.5 line-clamp-1">Local Org. Chair</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="sponsor-carousel" class="py-12 sm:py-16 md:py-20 bg-gray-100">
+            <div class="max-w-7xl mx-auto px-3 sm:px-4">
+                <div class="mb-8 sm:mb-12 text-center">
+                    <p class="badge-blue">Sponsor Showcase</p>
+                    <h2 class="text-2xl sm:text-3xl md:text-4xl font-black">Trusted by leading organizations across Canada and Africa.</h2>
+                </div>
+                <div class="overflow-hidden rounded-2xl sm:rounded-[2rem] bg-white shadow-2xl">
+                    <div id="sponsor-track" class="flex gap-4 sm:gap-6 p-4 sm:p-8">
+                        <div class="sponsor-card min-w-[160px] sm:min-w-[200px]">Global Trade Alliance</div>
+                        <div class="sponsor-card min-w-[160px] sm:min-w-[200px]">African Finance Network</div>
+                        <div class="sponsor-card min-w-[160px] sm:min-w-[200px]">Renewable Growth Partners</div>
+                        <div class="sponsor-card min-w-[160px] sm:min-w-[200px]">Canada Investment Forum</div>
+                        <div class="sponsor-card min-w-[160px] sm:min-w-[200px]">Strategic Development Group</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="sponsorship" class="py-12 sm:py-16 md:py-20">
+            <div class="max-w-7xl mx-auto px-3 sm:px-4 grid gap-8 sm:gap-10 lg:grid-cols-[0.9fr_0.8fr] items-center">
+                <div>
+                    <p class="badge-blue">Partnership & Sponsorship Opportunities</p>
+                    <h2 class="text-2xl sm:text-3xl md:text-4xl font-black">Gain visibility among decision-makers from Canada and Africa.</h2>
+                    <p class="mt-3 sm:mt-4 text-gray-600 leading-relaxed text-sm sm:text-base">Join CATIGS 2026 as a strategic partner or sponsor and connect with global business leaders, investors, policymakers, and trade stakeholders.</p>
+                    <div class="mt-6 sm:mt-8 grid gap-3 sm:gap-4 sm:grid-cols-2">
+                        <div class="card-event p-4 sm:p-6">
+                            <h3 class="font-bold mb-2 sm:mb-3 text-sm sm:text-base">Global Brand Exposure</h3>
+                            <p class="text-gray-600 text-xs sm:text-sm">Showcase your organization to a premium international audience.</p>
+                        </div>
+                        <div class="card-event p-4 sm:p-6">
+                            <h3 class="font-bold mb-2 sm:mb-3 text-sm sm:text-base">Direct Access to Investors</h3>
+                            <p class="text-gray-600 text-xs sm:text-sm">Engage with investors in private deal room sessions.</p>
+                        </div>
+                        <div class="card-event p-4 sm:p-6">
+                            <h3 class="font-bold mb-2 sm:mb-3 text-sm sm:text-base">Speaking Opportunities</h3>
+                            <p class="text-gray-600 text-xs sm:text-sm">Position your leaders on high-profile plenaries and panels.</p>
+                        </div>
+                        <div class="card-event p-4 sm:p-6">
+                            <h3 class="font-bold mb-2 sm:mb-3 text-sm sm:text-base">Media Visibility</h3>
+                            <p class="text-gray-600 text-xs sm:text-sm">Benefit from summit press coverage and digital amplification.</p>
+                        </div>
+                    </div>
+                    <a href="contact.html" class="btn-gold mt-6 sm:mt-8 inline-flex">Request Sponsorship Package</a>
+                </div>
+<div class="bg-gray-900 rounded-2xl sm:rounded-[2rem] p-6 sm:p-10 text-white shadow-2xl">
+                    <h3 class="text-xl sm:text-2xl font-black mb-4 sm:mb-6">Sponsorship benefits</h3>
+                    <ul class="space-y-2 sm:space-y-4 text-xs sm:text-sm text-gray-200">
+                        <li>• Global Brand Exposure</li>
+                        <li>• Direct Access to Investors</li>
+                        <li>• Networking Opportunities</li>
+                        <li>• Speaking Opportunities</li>
+                        <li>• Business Matchmaking</li>
+                        <li>• Media Visibility</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="py-12 sm:py-16 md:py-20">
+            <div class="max-w-7xl mx-auto px-3 sm:px-4 grid gap-8 sm:gap-10 lg:grid-cols-[0.9fr_0.8fr] items-start">
+                <div>
+                    <p class="badge-blue">Contact</p>
+                    <h2 class="text-2xl sm:text-3xl md:text-4xl font-black">Stay connected with CATIGS 2026.</h2>
+                    <p class="mt-3 sm:mt-4 text-gray-600 leading-relaxed text-sm sm:text-base">Get the latest event details, partnership updates, and registration support from the CATIGS team.</p>
+                    <div class="mt-6 sm:mt-8 grid gap-3 sm:gap-4 sm:grid-cols-2">
+                        <div class="card-event p-4 sm:p-6">
+                            <p class="text-xs uppercase tracking-[0.3em] text-amber-600">Website</p>
+                            <p class="mt-2 sm:mt-3 font-semibold text-sm sm:text-base">www.infocatigs.com</p>
+                        </div>
+                        <div class="card-event p-4 sm:p-6">
+                            <p class="text-xs uppercase tracking-[0.3em] text-amber-600">Email</p>
+                            <p class="mt-2 sm:mt-3 font-semibold text-sm sm:text-base">catigs@infocatigs.com</p>
+                        </div>
+                        <div class="card-event p-4 sm:p-6">
+                            <p class="text-xs uppercase tracking-[0.3em] text-amber-600">Phone</p>
+                            <p class="mt-2 sm:mt-3 font-semibold text-sm sm:text-base">+1 647 530 4037</p>
+                        </div>
+                        <div class="card-event p-4 sm:p-6">
+                            <p class="text-xs uppercase tracking-[0.3em] text-amber-600">Hashtag</p>
+                            <p class="mt-2 sm:mt-3 font-semibold text-sm sm:text-base">#CATIGS2026</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-event p-5 sm:p-8 shadow-xl">
+                    <form class="space-y-4 sm:space-y-6 contact-form">
+                        <div>
+                            <label class="form-label" for="contact-name">Name</label>
+                            <input id="contact-name" type="text" class="form-input" placeholder="Your full name">
+                        </div>
+                        <div>
+                            <label class="form-label" for="contact-email">Email</label>
+                            <input id="contact-email" type="email" class="form-input" placeholder="you@example.com">
+                        </div>
+                        <div>
+                            <label class="form-label" for="contact-subject">Subject</label>
+                            <input id="contact-subject" type="text" class="form-input" placeholder="Partnership inquiry">
+                        </div>
+                        <div>
+                            <label class="form-label" for="contact-message">Message</label>
+                            <textarea id="contact-message" rows="5" class="form-input" placeholder="Tell us how we can help"></textarea>
+                        </div>
+                        <button type="submit" class="btn-gold w-full">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-12 sm:py-16 md:py-20 bg-gray-100">
+            <div class="max-w-7xl mx-auto px-3 sm:px-4">
+                <div class="mb-8 sm:mb-12 text-center">
+                    <p class="badge-blue">Partners</p>
+                    <h2 class="text-2xl sm:text-3xl md:text-4xl font-black">Supported by ATESCA and AWIP</h2>
+                </div>
+                <div class="grid gap-4 sm:gap-6 md:grid-cols-2 lg:grid-cols-4">
+                    <div class="card-event p-6 sm:p-8 text-center">
+                        <p class="font-bold text-gray-900 text-sm sm:text-base">ATESCA</p>
+                        <p class="text-xs sm:text-sm text-gray-600 mt-2 sm:mt-3">African Super Market Canada</p>
+                    </div>
+                    <div class="card-event p-6 sm:p-8 text-center">
+                        <p class="font-bold text-gray-900 text-sm sm:text-base">AWIP</p>
+                        <p class="text-xs sm:text-sm text-gray-600 mt-2 sm:mt-3">African Women in Progress</p>
+                    </div>
+                    <div class="card-event p-6 sm:p-8 text-center">
+                        <p class="font-bold text-gray-900 text-sm sm:text-base">Canada Africa Economic Cooperation</p>
+                        <p class="text-xs sm:text-sm text-gray-600 mt-2 sm:mt-3">Strategic alignment and global market acceleration.</p>
+                    </div>
+                    <div class="card-event p-6 sm:p-8 text-center">
+                        <p class="font-bold text-gray-900 text-sm sm:text-base">Global Trade Partners</p>
+                        <p class="text-xs sm:text-sm text-gray-600 mt-2 sm:mt-3">Unlocking investment, innovation and sustainable growth.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-900 text-gray-200 py-8 sm:py-12">
+        <div class="max-w-7xl mx-auto px-3 sm:px-4 grid gap-6 sm:gap-8 lg:grid-cols-[1fr_0.9fr_0.9fr]">
+            <div>
+                <h3 class="text-base sm:text-lg font-bold text-white mb-3 sm:mb-4">About CATIGS</h3>
+                <p class="text-xs sm:text-sm leading-relaxed">CATIGS 2026 unites Canada and Africa leaders to shape trade, investment, and sustainable partnerships for a stronger shared future.</p>
+            </div>
+            <div>
+                <h3 class="text-base sm:text-lg font-bold text-white mb-3 sm:mb-4">Quick Links</h3>
+                <ul class="space-y-2 sm:space-y-3 text-xs sm:text-sm text-gray-400">
+                    <li><a href="#event-info" class="hover:text-white">Event Info</a></li>
+                    <li><a href="#about" class="hover:text-white">About</a></li>
+                    <li><a href="#focus" class="hover:text-white">Focus Areas</a></li>
+                    <li><a href="#contact" class="hover:text-white">Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="text-base sm:text-lg font-bold text-white mb-3 sm:mb-4">Contact</h3>
+                <p class="text-xs sm:text-sm text-gray-400">www.infocatigs.com</p>
+                <p class="text-xs sm:text-sm text-gray-400 mt-2">catigs@infocatigs.com</p>
+                <p class="text-xs sm:text-sm text-gray-400 mt-2">+1 647 530 4037</p>
+                <p class="text-xs sm:text-sm text-gray-400 mt-2">#CATIGS2026</p>
+            </div>
+        </div>
+        <div class="mt-6 sm:mt-10 border-t border-white/10 pt-4 sm:pt-6 text-center text-xs text-gray-500">© 2026 CATIGS2026. All rights reserved.</div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy | CATIGS 2026</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .font-playfair { font-family: 'Playfair Display', serif; }
+        html { scroll-behavior: smooth; }
+        @media (max-width: 640px) {
+            h1 { font-size: 1.75rem !important; }
+            h2 { font-size: 1.5rem !important; }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 overflow-x-hidden">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50">
+        <div class="bg-white/95 backdrop-blur-md shadow-lg mx-2 mt-2 rounded-2xl">
+            <div class="max-w-7xl mx-auto px-3 py-3 flex justify-between items-center">
+                <a href="index.html" class="flex items-center gap-2">
+                    <img src="catigs2026-LOGO.jpeg" alt="CATIGS2026 Logo" class="h-8 sm:h-10 w-auto">
+                    <span class="text-lg sm:text-xl font-black tracking-tight text-gray-900 font-['Playfair_Display']">CATIGS2026 <span class="text-amber-600">2026</span></span>
+                </a>
+                <div class="hidden lg:flex items-center gap-4">
+                    <a href="index.html" class="text-xs font-bold uppercase tracking-wider text-gray-700 hover:text-amber-600">Home</a>
+                    <a href="program.html" class="text-xs font-bold uppercase tracking-wider text-gray-700 hover:text-amber-600">Program</a>
+                    <a href="sponsors.html" class="text-xs font-bold uppercase tracking-wider text-gray-700 hover:text-amber-600">Sponsors</a>
+                    <a href="faq.html" class="text-xs font-bold uppercase tracking-wider text-gray-700 hover:text-amber-600">FAQ</a>
+                    <a href="registration.html" class="px-4 py-2 bg-amber-600 text-white text-xs font-bold uppercase tracking-wider rounded-full hover:bg-amber-700">Register</a>
+                </div>
+                <button onclick="toggleMenu()" class="lg:hidden p-2">
+                    <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden lg:hidden bg-white mx-2 rounded-b-2xl shadow-lg">
+            <div class="px-4 py-4 flex flex-col gap-2">
+                <a href="index.html" class="text-sm font-bold uppercase text-gray-700 py-2">Home</a>
+                <a href="program.html" class="text-sm font-bold uppercase text-gray-700 py-2">Program</a>
+                <a href="sponsors.html" class="text-sm font-bold uppercase text-gray-700 py-2">Sponsors</a>
+                <a href="faq.html" class="text-sm font-bold uppercase text-gray-700 py-2">FAQ</a>
+                <a href="registration.html" class="mt-2 px-4 py-3 bg-amber-600 text-white text-sm font-bold uppercase rounded-full text-center">Register</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="h-20"></div>
+
+    <!-- Header -->
+    <section class="py-12 md:py-20 bg-gray-900 text-white">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <h1 class="text-3xl md:text-5xl font-black font-['Playfair_Display']">Privacy <span class="text-amber-500">Policy</span></h1>
+        </div>
+    </section>
+
+    <!-- Content -->
+    <section class="py-12 md:py-16 px-4">
+        <div class="max-w-3xl mx-auto">
+            <div class="bg-white rounded-2xl p-6 md:p-8 shadow-lg">
+                <p class="text-gray-600 mb-6">Last updated: January 2026</p>
+
+                <h2 class="text-xl font-bold text-gray-900 mb-4">Information We Collect</h2>
+                <p class="text-gray-600 mb-6">We collect personal information including name, email, company, job title, and payment information when you register for CATIGS2026.</p>
+
+                <h2 class="text-xl font-bold text-gray-900 mb-4">How We Use Your Information</h2>
+                <p class="text-gray-600 mb-6">Your information is used to process registrations, communicate about the summit, and share relevant investment opportunities.</p>
+
+                <h2 class="text-xl font-bold text-gray-900 mb-4">Data Protection</h2>
+                <p class="text-gray-600 mb-6">We implement appropriate security measures to protect your personal information against unauthorized access.</p>
+
+                <h2 class="text-xl font-bold text-gray-900 mb-4">Third-Party Sharing</h2>
+                <p class="text-gray-600 mb-6">We do not sell your personal information. We may share data with event partners for networking purposes with your consent.</p>
+
+                <h2 class="text-xl font-bold text-gray-900 mb-4">Contact Us</h2>
+                <p class="text-gray-600">For privacy concerns, contact us at catigs@infocatgs.com</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-8 border-t border-gray-800">
+        <div class="max-w-6xl mx-auto px-4 text-center">
+            <p class="text-xs text-gray-500 uppercase">© 2026 CATIGS2026. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

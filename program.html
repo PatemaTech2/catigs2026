@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Program | CATIGS 2026</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .font-playfair { font-family: 'Playfair Display', serif; }
+        html { scroll-behavior: smooth; }
+        
+        @media (max-width: 640px) {
+            h1 { font-size: 1.75rem !important; }
+            h2 { font-size: 1.5rem !important; }
+            .section-padding { padding: 3rem 1rem !important; }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 overflow-x-hidden">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 transition-all duration-300">
+        <div class="bg-white/95 backdrop-blur-md shadow-lg mx-2 mt-2 rounded-2xl">
+            <div class="max-w-7xl mx-auto px-3 py-3 flex justify-between items-center">
+                <a href="index.html" class="flex items-center gap-2">
+                    <img src="catigs2026-LOGO.jpeg" alt="CATIGS2026 Logo" class="h-8 sm:h-10 w-auto">
+                    <span class="text-lg sm:text-xl font-black tracking-tight text-gray-900 font-['Playfair_Display']">CATIGS2026 <span class="text-amber-600">2026</span></span>
+                </a>
+                <div class="hidden lg:flex items-center gap-4">
+                    <a href="index.html" class="text-xs font-bold uppercase tracking-wider text-gray-700 hover:text-amber-600">Home</a>
+                    <a href="#agenda" class="text-xs font-bold uppercase tracking-wider text-gray-700 hover:text-amber-600">Agenda</a>
+                    <a href="sponsors.html" class="text-xs font-bold uppercase tracking-wider text-gray-700 hover:text-amber-600">Sponsors</a>
+                    <a href="faq.html" class="text-xs font-bold uppercase tracking-wider text-gray-700 hover:text-amber-600">FAQ</a>
+                    <a href="registration.html" class="px-4 py-2 bg-amber-600 text-white text-xs font-bold uppercase tracking-wider rounded-full hover:bg-amber-700">Register</a>
+                </div>
+                <button onclick="toggleMenu()" class="lg:hidden p-2">
+                    <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden lg:hidden bg-white mx-2 rounded-b-2xl shadow-lg">
+            <div class="px-4 py-4 flex flex-col gap-2">
+                <a href="index.html" class="text-sm font-bold uppercase text-gray-700 py-2">Home</a>
+                <a href="#agenda" class="text-sm font-bold uppercase text-gray-700 py-2">Agenda</a>
+                <a href="sponsors.html" class="text-sm font-bold uppercase text-gray-700 py-2">Sponsors</a>
+                <a href="faq.html" class="text-sm font-bold uppercase text-gray-700 py-2">FAQ</a>
+                <a href="registration.html" class="mt-2 px-4 py-3 bg-amber-600 text-white text-sm font-bold uppercase rounded-full text-center">Register</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="h-20"></div>
+
+    <!-- Header -->
+    <section class="py-12 md:py-20 bg-gray-900 text-white">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <p class="text-xs font-bold text-amber-500 uppercase tracking-[0.3em] mb-3">November 12–14, 2026</p>
+            <h1 class="text-3xl md:text-5xl font-black font-['Playfair_Display']">CATIGS 2026 <span class="text-amber-500">Agenda</span></h1>
+            <p class="text-gray-300 mt-4 max-w-2xl mx-auto text-sm md:text-base">A Global Platform for Africa–Canada Trade Partnership, Women Entrepreneurship, Investment & Sustainable Growth.</p>
+        </div>
+    </section>
+
+    <!-- Session 1 -->
+    <section id="agenda" class="py-12 md:py-16 px-4">
+        <div class="max-w-4xl mx-auto">
+            <div class="flex items-center gap-4 mb-8">
+                <span class="w-12 h-12 bg-amber-600 text-white font-bold text-xl rounded-xl flex items-center justify-center">1</span>
+                <div>
+                    <p class="text-xs text-amber-600 font-bold uppercase">Session 1</p>
+                    <h2 class="text-xl md:text-2xl font-bold text-gray-900">The Future of Africa–Canada Trade Partnership for Women Entrepreneurship</h2>
+                </div>
+            </div>
+
+            <div class="space-y-4">
+                <div class="bg-white p-4 md:p-6 rounded-xl shadow-sm border border-gray-100">
+                    <div class="flex flex-col md:flex-row md:items-center gap-2 md:gap-4">
+                        <div class="md:w-40 text-amber-600 font-bold text-sm">9:00 - 10:30 AM</div>
+                        <div>
+                            <h3 class="font-bold text-gray-900">Opening Plenary — Women in Trade</h3>
+                            <p class="text-sm text-gray-600">Keynote addresses on advancing women entrepreneurship through Africa–Canada trade frameworks.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white p-4 md:p-6 rounded-xl shadow-sm border border-gray-100">
+                    <div class="flex flex-col md:flex-row md:items-center gap-2 md:gap-4">
+                        <div class="md:w-40 text-amber-600 font-bold text-sm">10:30 - 12:00 PM</div>
+                        <div>
+                            <h3 class="font-bold text-gray-900">Market Access & Trade Policy</h3>
+                            <p class="text-sm text-gray-600">Policy dialogue on removing barriers for women-led businesses in cross-border trade.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white p-4 md:p-6 rounded-xl shadow-sm border border-gray-100">
+                    <div class="flex flex-col md:flex-row md:items-center gap-2 md:gap-4">
+                        <div class="md:w-40 text-amber-600 font-bold text-sm">12:00 - 1:00 PM</div>
+                        <div>
+                            <h3 class="font-bold text-gray-900">Networking Lunch</h3>
+                            <p class="text-sm text-gray-600">Connect with women entrepreneurs, investors, and trade officials.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white p-4 md:p-6 rounded-xl shadow-sm border border-gray-100">
+                    <div class="flex flex-col md:flex-row md:items-center gap-2 md:gap-4">
+                        <div class="md:w-40 text-amber-600 font-bold text-sm">1:00 - 3:00 PM</div>
+                        <div>
+                            <h3 class="font-bold text-gray-900">Trade Partnership Roundtables</h3>
+                            <p class="text-sm text-gray-600">Facilitated discussions on Canada–Africa trade opportunities and women-led enterprise development.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Session 2 -->
+    <section class="py-12 md:py-16 px-4 bg-gray-100">
+        <div class="max-w-4xl mx-auto">
+            <div class="flex items-center gap-4 mb-8">
+                <span class="w-12 h-12 bg-amber-600 text-white font-bold text-xl rounded-xl flex items-center justify-center">2</span>
+                <div>
+                    <p class="text-xs text-amber-600 font-bold uppercase">Session 2</p>
+                    <h2 class="text-xl md:text-2xl font-bold text-gray-900">Unlocking Opportunities Under Africa and Canada African Trade Relations — Expert Readiness Workshop</h2>
+                </div>
+            </div>
+
+            <div class="space-y-4">
+                <div class="bg-white p-4 md:p-6 rounded-xl shadow-sm border border-gray-100">
+                    <div class="flex flex-col md:flex-row md:items-center gap-2 md:gap-4">
+                        <div class="md:w-40 text-amber-600 font-bold text-sm">9:00 - 10:30 AM</div>
+                        <div>
+                            <h3 class="font-bold text-gray-900">Trade Relations Overview</h3>
+                            <p class="text-sm text-gray-600">Expert insights on current Africa–Canada trade agreements, tariffs, and market entry strategies.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white p-4 md:p-6 rounded-xl shadow-sm border border-gray-100">
+                    <div class="flex flex-col md:flex-row md:items-center gap-2 md:gap-4">
+                        <div class="md:w-40 text-amber-600 font-bold text-sm">10:30 - 12:00 PM</div>
+                        <div>
+                            <h3 class="font-bold text-gray-900">Expert Readiness Workshop</h3>
+                            <p class="text-sm text-gray-600">Hands-on training for entrepreneurs on export readiness, compliance, and cross-border operations.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white p-4 md:p-6 rounded-xl shadow-sm border border-gray-100">
+                    <div class="flex flex-col md:flex-row md:items-center gap-2 md:gap-4">
+                        <div class="md:w-40 text-amber-600 font-bold text-sm">12:00 - 1:00 PM</div>
+                        <div>
+                            <h3 class="font-bold text-gray-900">Networking Lunch</h3>
+                            <p class="text-sm text-gray-600">Delegates connect with trade experts, chambers of commerce, and government representatives.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white p-4 md:p-6 rounded-xl shadow-sm border border-gray-100">
+                    <div class="flex flex-col md:flex-row md:items-center gap-2 md:gap-4">
+                        <div class="md:w-40 text-amber-600 font-bold text-sm">1:00 - 4:00 PM</div>
+                        <div>
+                            <h3 class="font-bold text-gray-900">Investment & Innovation Showcase</h3>
+                            <p class="text-sm text-gray-600">Business pitches from women-led enterprises across agriculture, manufacturing, health products, and green economics.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white p-4 md:p-6 rounded-xl shadow-sm border border-gray-100">
+                    <div class="flex flex-col md:flex-row md:items-center gap-2 md:gap-4">
+                        <div class="md:w-40 text-amber-600 font-bold text-sm">4:00 - 6:00 PM</div>
+                        <div>
+                            <h3 class="font-bold text-gray-900">Deal Rooms Open</h3>
+                            <p class="text-sm text-gray-600">Pre-scheduled 1-on-1 meetings between entrepreneurs and investors.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Session 3 -->
+    <section class="py-12 md:py-16 px-4">
+        <div class="max-w-4xl mx-auto">
+            <div class="flex items-center gap-4 mb-8">
+                <span class="w-12 h-12 bg-amber-600 text-white font-bold text-xl rounded-xl flex items-center justify-center">3</span>
+                <div>
+                    <p class="text-xs text-amber-600 font-bold uppercase">Session 3</p>
+                    <h2 class="text-xl md:text-2xl font-bold text-gray-900">Investment, Innovation and Value Addition</h2>
+                </div>
+            </div>
+
+            <div class="space-y-4">
+                <div class="bg-white p-4 md:p-6 rounded-xl shadow-sm border border-gray-100">
+                    <div class="flex flex-col md:flex-row md:items-center gap-2 md:gap-4">
+                        <div class="md:w-40 text-amber-600 font-bold text-sm">9:00 - 10:30 AM</div>
+                        <div>
+                            <h3 class="font-bold text-gray-900">Innovation in Trade</h3>
+                            <p class="text-sm text-gray-600">Exploring cutting-edge solutions in agriculture tech, health product manufacturing, and green economics.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white p-4 md:p-6 rounded-xl shadow-sm border border-gray-100">
+                    <div class="flex flex-col md:flex-row md:items-center gap-2 md:gap-4">
+                        <div class="md:w-40 text-amber-600 font-bold text-sm">10:30 - 12:00 PM</div>
+                        <div>
+                            <h3 class="font-bold text-gray-900">Value Addition Workshops</h3>
+                            <p class="text-sm text-gray-600">Sector-specific workshops on processing, manufacturing, and increasing local content in trade.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white p-4 md:p-6 rounded-xl shadow-sm border border-gray-100">
+                    <div class="flex flex-col md:flex-row md:items-center gap-2 md:gap-4">
+                        <div class="md:w-40 text-amber-600 font-bold text-sm">12:00 - 1:00 PM</div>
+                        <div>
+                            <h3 class="font-bold text-gray-900">Networking Lunch</h3>
+                            <p class="text-sm text-gray-600">Informal networking with sector experts and potential collaborators.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white p-4 md:p-6 rounded-xl shadow-sm border border-gray-100">
+                    <div class="flex flex-col md:flex-row md:items-center gap-2 md:gap-4">
+                        <div class="md:w-40 text-amber-600 font-bold text-sm">1:00 - 4:00 PM</div>
+                        <div>
+                            <h3 class="font-bold text-gray-900">Investor Pitch Sessions</h3>
+                            <p class="text-sm text-gray-600">Selected entrepreneurs present investment-ready projects to a panel of Canadian and African investors.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white p-4 md:p-6 rounded-xl shadow-sm border border-gray-100">
+                    <div class="flex flex-col md:flex-row md:items-center gap-2 md:gap-4">
+                        <div class="md:w-40 text-amber-600 font-bold text-sm">4:00 - 6:00 PM</div>
+                        <div>
+                            <h3 class="font-bold text-gray-900">Deal Rooms Open</h3>
+                            <p class="text-sm text-gray-600">Continued 1-on-1 investor–entrepreneur matchmaking.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Session 4 -->
+    <section class="py-12 md:py-16 px-4 bg-gray-100">
+        <div class="max-w-4xl mx-auto">
+            <div class="flex items-center gap-4 mb-8">
+                <span class="w-12 h-12 bg-amber-600 text-white font-bold text-xl rounded-xl flex items-center justify-center">4</span>
+                <div>
+                    <p class="text-xs text-amber-600 font-bold uppercase">Session 4</p>
+                    <h2 class="text-xl md:text-2xl font-bold text-gray-900">Deal Making and Future Collaborations</h2>
+                </div>
+            </div>
+
+            <div class="space-y-4">
+                <div class="bg-white p-4 md:p-6 rounded-xl shadow-sm border border-gray-100">
+                    <div class="flex flex-col md:flex-row md:items-center gap-2 md:gap-4">
+                        <div class="md:w-40 text-amber-600 font-bold text-sm">9:00 - 11:00 AM</div>
+                        <div>
+                            <h3 class="font-bold text-gray-900">B2B Matchmaking Marathon</h3>
+                            <p class="text-sm text-gray-600">Speed networking and deal-making sessions across all priority sectors.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white p-4 md:p-6 rounded-xl shadow-sm border border-gray-100">
+                    <div class="flex flex-col md:flex-row md:items-center gap-2 md:gap-4">
+                        <div class="md:w-40 text-amber-600 font-bold text-sm">11:00 AM - 1:00 PM</div>
+                        <div>
+                            <h3 class="font-bold text-gray-900">Partnership Signings</h3>
+                            <p class="text-sm text-gray-600">Formal announcements of new Africa–Canada trade partnerships and investment commitments.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white p-4 md:p-6 rounded-xl shadow-sm border border-gray-100">
+                    <div class="flex flex-col md:flex-row md:items-center gap-2 md:gap-4">
+                        <div class="md:w-40 text-amber-600 font-bold text-sm">1:00 - 2:00 PM</div>
+                        <div>
+                            <h3 class="font-bold text-gray-900">Closing Lunch & Cultural Exchange</h3>
+                            <p class="text-sm text-gray-600">Celebrating collaboration with food, music, and cultural exchange.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white p-4 md:p-6 rounded-xl shadow-sm border border-gray-100">
+                    <div class="flex flex-col md:flex-row md:items-center gap-2 md:gap-4">
+                        <div class="md:w-40 text-amber-600 font-bold text-sm">2:00 - 3:00 PM</div>
+                        <div>
+                            <h3 class="font-bold text-gray-900">Future Collaboration Roadmap</h3>
+                            <p class="text-sm text-gray-600">Strategic roadmap presentation for ongoing Africa–Canada trade initiatives and next steps.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white p-4 md:p-6 rounded-xl shadow-sm border border-gray-100">
+                    <div class="flex flex-col md:flex-row md:items-center gap-2 md:gap-4">
+                        <div class="md:w-40 text-amber-600 font-bold text-sm">3:00 - 4:00 PM</div>
+                        <div>
+                            <h3 class="font-bold text-gray-900">Closing Ceremony</h3>
+                            <p class="text-sm text-gray-600">Awards, acknowledgments, and official closing of CATIGS 2026.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-12 md:py-16 bg-gray-900 text-white">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <h2 class="text-2xl md:text-3xl font-black font-['Playfair_Display'] mb-4">Ready to Join?</h2>
+            <p class="text-gray-400 mb-6">Secure your place at CATIGS 2026</p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="registration.html" class="px-6 py-3 bg-amber-600 text-white font-bold uppercase tracking-wider text-sm rounded-full hover:bg-amber-700">Register Now</a>
+                <a href="sponsors.html" class="px-6 py-3 border-2 border-white text-white font-bold uppercase tracking-wider text-sm rounded-full hover:bg-white hover:text-gray-900">Become a Sponsor</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-8 border-t border-gray-800">
+        <div class="max-w-6xl mx-auto px-4 text-center">
+            <p class="text-xs text-gray-500 uppercase">© 2026 CATIGS2026. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

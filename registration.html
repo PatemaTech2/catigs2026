@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration | CATIGS2026</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .font-playfair { font-family: 'Playfair Display', serif; }
+        html { scroll-behavior: smooth; }
+        @media (max-width: 640px) {
+            h1 { font-size: 1.75rem !important; }
+            h2 { font-size: 1.5rem !important; }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 overflow-x-hidden">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50">
+        <div class="bg-white/95 backdrop-blur-md shadow-lg mx-2 mt-2 rounded-2xl">
+            <div class="max-w-7xl mx-auto px-3 py-3 flex justify-between items-center">
+                <a href="index.html" class="flex items-center gap-2">
+                    <img src="catigs2026-LOGO.jpeg" alt="CATIGS2026 Logo" class="h-8 sm:h-10 w-auto">
+                    <span class="text-lg sm:text-xl font-black tracking-tight text-gray-900 font-['Playfair_Display']">CATIGS2026 <span class="text-amber-600">2026</span></span>
+                </a>
+                <div class="hidden lg:flex items-center gap-4">
+                    <a href="index.html" class="text-xs font-bold uppercase tracking-wider text-gray-700 hover:text-amber-600">Home</a>
+                    <a href="program.html" class="text-xs font-bold uppercase tracking-wider text-gray-700 hover:text-amber-600">Program</a>
+                    <a href="sponsors.html" class="text-xs font-bold uppercase tracking-wider text-gray-700 hover:text-amber-600">Sponsors</a>
+                    <a href="faq.html" class="text-xs font-bold uppercase tracking-wider text-gray-700 hover:text-amber-600">FAQ</a>
+                </div>
+                <button onclick="toggleMenu()" class="lg:hidden p-2">
+                    <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden lg:hidden bg-white mx-2 rounded-b-2xl shadow-lg">
+            <div class="px-4 py-4 flex flex-col gap-2">
+                <a href="index.html" class="text-sm font-bold uppercase text-gray-700 py-2">Home</a>
+                <a href="program.html" class="text-sm font-bold uppercase text-gray-700 py-2">Program</a>
+                <a href="sponsors.html" class="text-sm font-bold uppercase text-gray-700 py-2">Sponsors</a>
+                <a href="faq.html" class="text-sm font-bold uppercase text-gray-700 py-2">FAQ</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="h-20"></div>
+
+    <!-- Header -->
+    <section class="py-12 md:py-20 bg-gray-900 text-white">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <p class="text-xs font-bold text-amber-500 uppercase tracking-[0.3em] mb-3">Join Us</p>
+            <h1 class="text-3xl md:text-5xl font-black font-['Playfair_Display']">Register <span class="text-amber-500">Now</span></h1>
+        </div>
+    </section>
+
+    <!-- Pricing Notice -->
+    <section class="py-12 md:py-16 px-4">
+        <div class="max-w-6xl mx-auto">
+            <div class="bg-white rounded-2xl p-8 shadow-lg text-center">
+                <div class="max-w-xl mx-auto">
+                    <p class="text-sm font-semibold text-gray-500 mb-4">Ready to join CATIGS 2026?</p>
+                    <a href="https://form.svhrt.com/6a3c351e414ffc6007085f38" target="_blank" rel="noreferrer" class="block w-full sm:inline-block sm:w-auto px-8 py-4 bg-amber-600 text-white font-black uppercase tracking-[0.2em] text-sm rounded-full hover:bg-amber-700 transition shadow-xl shadow-amber-500/20">Click to Register</a>
+                    <p class="mt-4 text-xs text-gray-400">You will be redirected to the registration form.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What's Included -->
+    <section class="py-12 md:py-16 px-4 bg-gray-100">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-2xl font-black text-center text-gray-900 mb-8 font-['Playfair_Display']">What's <span class="text-amber-600">Included</span></h2>
+            <div class="grid sm:grid-cols-2 gap-4">
+                <div class="bg-white p-4 rounded-xl">
+                    <h3 class="font-bold text-gray-900 mb-2">All Agenda Sessions</h3>
+                    <p class="text-sm text-gray-600">Full access to all four CATIGS 2026 sessions and workshops</p>
+                </div>
+                <div class="bg-white p-4 rounded-xl">
+                    <h3 class="font-bold text-gray-900 mb-2">Networking Events</h3>
+                    <p class="text-sm text-gray-600">Welcome reception, business lunches, and cultural exchange sessions</p>
+                </div>
+                <div class="bg-white p-4 rounded-xl">
+                    <h3 class="font-bold text-gray-900 mb-2">Deal Room Access</h3>
+                    <p class="text-sm text-gray-600">Pre-scheduled meetings with Canadian and African investors</p>
+                </div>
+                <div class="bg-white p-4 rounded-xl">
+                    <h3 class="font-bold text-gray-900 mb-2">Conference Materials</h3>
+                    <p class="text-sm text-gray-600">Delegate bag, agenda, and Africa–Canada trade directory</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-8 border-t border-gray-800">
+        <div class="max-w-6xl mx-auto px-4 text-center">
+            <p class="text-xs text-gray-500 uppercase">© 2026 CATIGS2026. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
