@@ -510,18 +510,24 @@ color: var(--brand-blue);
     aspect-ratio: 1/1;
     object-fit: cover;
     background: linear-gradient(135deg, var(--brand-blue) 0%, var(--brand-blue-2) 100%);
-    max-height: 200px;
+    max-height: 100px;
 }
 
-@media (min-width: 640px) {
+@media (max-width: 639px) {
     .speaker-img {
-        max-height: 150px;
+        max-height: 200px;
+    }
+}
+
+@media (min-width: 640px) and (max-width: 1023px) {
+    .speaker-img {
+        max-height: 250px;
     }
 }
 
 @media (min-width: 1024px) {
     .speaker-img {
-        max-height: none;
+        max-height: 300px;
     }
 }
 
@@ -532,6 +538,26 @@ color: var(--brand-blue);
     height: auto; 
     object-fit: contain; 
     filter: brightness(1.05); 
+}
+
+.strategic-video {
+    width: 100%;
+    border-radius: 1rem;
+    object-fit: cover;
+    max-height: 400px;
+    background: #000;
+}
+
+@media (min-width: 640px) {
+    .strategic-video {
+        max-height: 500px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .strategic-video {
+        max-height: 600px;
+    }
 }
 
 @media (min-width: 640px) {
@@ -965,7 +991,7 @@ color: var(--brand-blue);
     }
     
     .speaker-card img {
-        max-height: 200px !important;
+        max-height: 100px !important;
     }
 }
 
